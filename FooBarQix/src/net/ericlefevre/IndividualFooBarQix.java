@@ -1,6 +1,6 @@
 package net.ericlefevre;
 
-public class FooBarQix {
+public class IndividualFooBarQix {
 	private static final String TEXT_FOR_7 = "Qix";
 	private static final String TEXT_FOR_5 = "Bar";
 	private static final String TEXT_FOR_3 = "Foo";
