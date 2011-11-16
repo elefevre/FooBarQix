@@ -1,16 +1,17 @@
 package net.ericlefevre;
 
 public class FooBarQix {
+	private final IndividualFooBarQix individualFooBarQix = new IndividualFooBarQix();
 
 	public String asTextUpTo(int topNumber) {
-		String str = "";
+		StringBuilder str = new StringBuilder();
 		for (int i = 1; i <= topNumber; i++) {
-			str += new IndividualFooBarQix().toText(i);
+			str.append(individualFooBarQix.toText(i));
 			if (i < topNumber) {
-				str += "\n";
+				str.append("\n");
 			}
 		}
-		return str;
+		return str.toString();
 	}
 
 	public static void main(String[] args) {

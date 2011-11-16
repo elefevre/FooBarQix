@@ -8,29 +8,28 @@ public class IndividualFooBarQix {
 			"", TEXT_FOR_5, "", TEXT_FOR_7, "", "" };
 
 	public String toText(int number) {
-		String result = //
-		""//
-				+ addTextForDivisible(number, 3)//
-				+ addTextForDivisible(number, 5)//
-				+ addTextForDivisible(number, 7)//
-				+ addTextForDigits(number);
+		StringBuffer result = new StringBuffer();
+		addTextForDivisible(number, 3, result);
+		addTextForDivisible(number, 5, result);
+		addTextForDivisible(number, 7, result);
+		addTextForDigits(number, result);
 
-		return !result.isEmpty() ? result : Integer.toString(number);
+		return result.length() > 0 ? result.toString() : Integer
+				.toString(number);
 	}
 
-	private String addTextForDivisible(int number, int digit) {
-		return (number % digit == 0) ? TEXT[digit] : "";
+	private void addTextForDivisible(int number, int digit, StringBuffer str) {
+		if (number % digit == 0) {
+			str.append(TEXT[digit]);
+		}
 	}
 
-	private String addTextForDigits(int numberToConvert) {
-		String result = "";
-
+	private void addTextForDigits(int numberToConvert, StringBuffer str) {
 		String asString = Integer.toString(numberToConvert);
 		for (int i = 0; i < asString.length(); i++) {
 			int digit = Integer.parseInt("" + asString.charAt(i));
-			result += TEXT[digit];
+			str.append(TEXT[digit]);
 		}
-		return result;
 	}
 
 }
