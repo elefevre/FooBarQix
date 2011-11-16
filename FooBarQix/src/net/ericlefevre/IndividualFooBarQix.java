@@ -27,9 +27,8 @@ public class IndividualFooBarQix {
 	private void addTextForDigits(int numberToConvert, StringBuffer str) {
 		String asString = Integer.toString(numberToConvert);
 		for (int i = 0; i < asString.length(); i++) {
-			int digit = Integer.parseInt("" + asString.charAt(i));
+			int digit = Integer.parseInt(asString.substring(i, i + 1));
 			str.append(TEXT[digit]);
 		}
 	}
-
 }
