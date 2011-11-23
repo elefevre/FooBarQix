@@ -64,15 +64,4 @@ public class IndividualFooBarQixTest {
 		assertThat(new IndividualFooBarQix().toText(53), is("BarFoo"));
 		assertThat(new IndividualFooBarQix().toText(21), is("FooQix"));
 	}
-
-	// 1
-	// 2
-	// FooFoo
-	// 4
-	// BarBar
-	// -Foo
-	// QixQix
-	// 8
-	// -Foo
-	// -Bar
 }
