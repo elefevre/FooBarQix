@@ -1,22 +1,23 @@
 
 class FooBarQix
 {
-  
-  static Void main(Str[] args)
-  {
+  static Void main(Str[] args)  {
     fooBarQix := FooBarQix {}
     for (index := 1; index <= 100; ++index)
     {
       echo(fooBarQix.asText(index))
     }
   }
-    Str asText(Int value) {
-      result := asTextFromMultiple(value, 3, "Foo") 
-        + asTextFromMultiple(value, 5, "Bar") 
-        + asTextFromMultiple(value, 7, "Qix")
-        + asTextFromDigit(value)
-      return result == "" ? "" + value : result
-    }
+
+  Str asText(Int value)
+  {
+    result := asTextFromMultiple(value, 3, "Foo") 
+      + asTextFromMultiple(value, 5, "Bar") 
+      + asTextFromMultiple(value, 7, "Qix")
+      + asTextFromDigit(value)
+
+    return result == "" ? "" + value : result
+  }
   
   private Str asTextFromMultiple(Int number, Int value, Str text)
   {
