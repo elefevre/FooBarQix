@@ -1,8 +1,8 @@
 # Configuration
 
-1. [Télécharger Gosu](http://gosu-lang.org/downloads.shtml)
-2. Dézipper
-3. Lancer le script gosu avec le nom du programme en paramètre
+1. [Download Gosu](http://gosu-lang.org/downloads.shtml)
+2. Unzip
+3. Run the gosu script with the name of the file in parameter
 
-	gosu FooBarQix.gsp # pour exécuter le code
-	gosu FooBarQix.gsp test # pour lancer les tests
+	gosu FooBarQix.gsp # to run the code
+	gosu FooBarQix.gsp test # to run the tests
