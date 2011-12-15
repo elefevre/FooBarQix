@@ -1,41 +1,23 @@
 use("ispec")
 
+labels = {3 => "Foo", 5 => "Bar", 7 => "Qix"}
+
+textForMultiples = method(number,
+  [3, 5, 7] map(n, if(number % n == 0, labels[n], "")) join
+)
+
+textForDigits = method(number,
+  number asText chars map(toRational) map(n, if(labels[n] nil?, "", labels[n])) join
+)
+
 fooBarQix = method(number,
-  result = ""
-  text = "" + number
-  if(number % 3 == 0,
-    result += "Foo")
-  if(number % 5 == 0,
-    result += "Bar")
-  if(number % 7 == 0,
-    result += "Qix")
-  if(text[0..0] == "3",
-    result += "Foo")
-  if(text[0..0] == "5",
-    result += "Bar")
-  if(text[0..0] == "7",
-    result += "Qix")
-  if(text[1..1] == "3",
-    result += "Foo")
-  if(text[1..1] == "5",
-    result += "Bar")
-  if(text[1..1] == "7",
-    result += "Qix")
-  if(text[2..2] == "3",
-    result += "Foo")
-  if(text[2..2] == "5",
-    result += "Bar")
-  if(text[2..2] == "7",
-    result += "Qix")
-  if(result empty?,
-    result = text)
-	result
+  result = textForMultiples(number) + textForDigits(number)
+
+  if(result empty?, number asText, result)
 )
 
 fooBarQixUpTo = method(number,
-  if(number > 1,
-    fooBarQixUpTo(number - 1) + "\n" + fooBarQix(number),
-    fooBarQix(1))
+  (1..number) map(n, fooBarQix(n)) join("\n")
 )
 
 fooBarQixUpTo(100) println
@@ -74,7 +56,7 @@ describe("fooBarQix",
     fooBarQix(71) should == "Qix"
     fooBarQix(277) should == "QixQix"
   )
-  it("should combined words for each digits 3, 5, and 7 it contains",
+  it("should combine words for each digits 3, 5, and 7 it contains",
     fooBarQix(53) should == "BarFoo"
     fooBarQix(73) should == "QixFoo"
     fooBarQix(1751) should == "QixBar"
